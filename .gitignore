@@ -1,0 +1,6 @@
+www/
+conf/httpd/vhosts/**/*.conf
+conf/httpd/letsencrypt/**/*
+!conf/httpd/letsencrypt/*.*
+conf/httpd/letsencrypt/.updated-options-ssl-apache-conf-digest.txt
+conf/db/dump/linux.escrol.es.sql
