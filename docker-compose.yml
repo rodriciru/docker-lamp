@@ -2,7 +2,7 @@ services:
     www:
         #image: httpd:alpine
         build: ./dockerfiles/httpd
-        ports: 
+        ports:
             - "8787:80"
             - "8788:443"
         volumes:
@@ -23,27 +23,27 @@ services:
         volumes:
             - "./www:/usr/local/apache2/htdocs"
         restart: always
-    #php_7:
-    #    build: ./dockerfiles/php/7/
+        #php_7:
+        #    build: ./dockerfiles/php/7/
         #ports: # no necesito hacerlo publico
         #    - "9000:9000"
-    #    volumes:
-    #        - "./www:/usr/local/apache2/htdocs"
-    #    restart: always
+        #    volumes:
+        #        - "./www:/usr/local/apache2/htdocs"
+        #    restart: always
     ftp:
         #image: stilliard/pure-ftpd
         build: ./dockerfiles/ftp
         ports:
             - "21:21"
             - 30000-30009:30000-30009
-        volumes: 
+        volumes:
             - "./www:/home/pure-ftpd/"
             - "./conf/ftp/pure-ftpd.conf:/etc/pure-ftpd/pure-ftpd.conf"
             - "./conf/ftp/pureftpd.passwd:/etc/pure-ftpd/passwd/pureftpd.passwd"
             - "./conf/tls/server.pem:/etc/ssl/private/pure-ftpd.pem"
         environment:
-# also for ssl/tls:
-#       -ADDED_FLAGS: "--tls=2"
+            # also for ssl/tls:
+            #       -ADDED_FLAGS: "--tls=2"
             #- ADDED_FLAGS= --tls=2 -d -d # TLS y logs
             - ADDED_FLAGS= --tls=2 # TLS
             #- ADDED_FLAGS= -d -d # Logs
@@ -71,10 +71,10 @@ services:
             MYSQL_ROOT_PASSWORD: /run/secrets/db_root_pswd # 3_b6NyyCz5YH!
         restart: always
         depends_on:
-          - db
-          - www
+            - db
+            - www
 volumes:
     persistentDB:
 secrets:
-  db_root_pswd:
-    file: ./conf/comun/db_root_pswd.txt
+    db_root_pswd:
+        file: ./conf/comun/db_root_pswd.txt
