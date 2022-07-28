@@ -1,4 +1,5 @@
-www/
+www/*
+!www/.gitkeep
 conf/httpd/vhosts/**/*.conf
 conf/httpd/letsencrypt/**/*
 !conf/httpd/letsencrypt/*.*
