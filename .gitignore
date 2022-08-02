@@ -1,6 +1,11 @@
 www/*
 !www/.gitkeep
+!www/linux.escrol.es
 conf/httpd/vhosts/**/*.conf
+!conf/httpd/vhosts/**/linux.escrol.es.conf
+!conf/httpd/vhosts/**/phpmyadmin.conf
+!conf/httpd/vhosts/**/default.conf
+!conf/httpd/vhosts/**/vhost1.conf
 conf/httpd/letsencrypt/**/*
 !conf/httpd/letsencrypt/*.*
 conf/httpd/letsencrypt/.updated-options-ssl-apache-conf-digest.txt
